@@ -1,0 +1,93 @@
+<div id="container">
+  <div id="header">
+    <div class="avatarSection">
+      <div class="picture">
+        <img src="../../assets/images/noPic.svg" />
+      </div>
+
+      <div class="nameSection">
+        <div class="name-text">
+          {{ conversation.name || "" }}
+        </div>
+        <div class="online-text">Online</div>
+      </div>
+    </div>
+    <div class="actionButtons">
+      <!-- <img src="../../assets/images/attached.svg" /> -->
+      <img src="../../assets/images/moreVertIcon.svg" />
+    </div>
+  </div>
+
+  <div id="body">
+    <div
+      class="message"
+      [ngClass]="{ me: message.me }"
+      *ngFor="let message of conversation.messages"
+    >
+      <div class="messageContent">
+        {{ message.body }}
+
+        <ng-container *ngIf="isImage(message.type)">
+          <img [src]="message.image" alt="Image" class="image" />
+        </ng-container>
+        <ng-container *ngIf="isDocuments(message.type)">
+          <a [href]="message.image" target="_blank">View Document</a>
+        </ng-container>
+        <div class="time">{{ message.time | timesince }}</div>
+        <div *ngIf="message.me" style="display: block; text-align: right">
+          <img *ngIf="!message.read" src="../../assets/images/doubleTick.svg" />
+          <img
+            *ngIf="message.read"
+            src="../../assets/images/doubleTickBlue.svg"
+          />
+        </div>
+
+        <div *ngIf="uploading" class="numerical-progress">
+          {{ uploadProgress }}%
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div id="smileyIcon">
+      <img
+        (click)="emojiPickerVisible = !emojiPickerVisible"
+        src="../../assets/images/smileIcon.svg"
+      />
+      <emoji-mart
+        (emojiClick)="emojiClicked($event)"
+        *ngIf="emojiPickerVisible"
+        style="position: absolute; bottom: 50px"
+        [darkMode]="false"
+        title="Pick your emoji…"
+        emoji="point_up"
+      ></emoji-mart>
+    </div>
+    <div id="textarea">
+      <textarea
+        [(ngModel)]="message"
+        (keyup.enter)="submitMessage($event)"
+        placeholder="Type a message..."
+      ></textarea>
+    </div>
+    <div id="micIcon">
+      <!-- <img
+    
+        src="../../assets/images/attached.svg"
+      /> -->
+      <img
+        (click)="triggerFileUpload()"
+        src="../../assets/images/attached.svg"
+      />
+
+      <input
+        type="file"
+        style="display: none"
+        (change)="handleFileUpload($event)"
+        #fileInput
+      />
+
+      <img (click)="submitSend()" src="../../assets/images/send icon.png" />
+    </div>
+  </div>
+</div>

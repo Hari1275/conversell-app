@@ -1,0 +1,26 @@
+<app-topnav></app-topnav>
+<app-sidenav></app-sidenav>
+<!-- <div id="background_header"></div>
+<div id="background_body"></div> -->
+<div class="dashboard">
+  <div fxLayout="row">
+    <div fxFlex="100%">
+      <div id="chatContainer">
+        <app-chat-bot-list
+          (conversationClicked)="onConversationSelected($event)"
+        ></app-chat-bot-list>
+        <div id="chat">
+          <div id="chatPlaceholder" *ngIf="!conversation">
+            <img width="400" src="../assets/images/phoneIcon.png" />
+            <h2>Keep your phone connected</h2>
+          </div>
+
+          <app-chat-bot-single-list
+            [conversation]="conversation"
+            *ngIf="conversation"
+          ></app-chat-bot-single-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

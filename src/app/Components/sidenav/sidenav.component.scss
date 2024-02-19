@@ -1,0 +1,131 @@
+mat-icon {
+    color: white;
+}
+
+.sidenav-container ::ng-deep .mat-drawer-inner-container {
+    overflow-x: hidden !important;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version. */
+mat-list-item {
+    font-weight: bold;
+    height: 70px !important;
+}
+
+mat-expansion-panel {
+    background: transparent !important;
+    color: white !important;
+}
+
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+}
+
+
+mat-expansion-panel-header {
+    padding: 0px 10px 0px 15px !important;
+    border-radius: initial !important;
+}
+
+.mat-mdc-list-base .mat-mdc-list-item .mat-mdc-list-item-icon {
+    padding: 0px !important;
+}
+
+.sidenav ::ng-deep .mat-expansion-panel-body {
+    padding: 0px !important;
+    background-color: #49505a !important;
+}
+.mat-drawer {
+    position: fixed !important;
+    margin-top: 64px;
+}
+
+.sidenav {
+    background: white;
+    overflow-x: hidden;
+    transition: 0.4s;
+    position: relative;
+    width: 4em;
+    overflow: hidden;
+}
+
+.sidenav-container {
+    transition: 0.4s;
+    background: transparent;
+    width: 4em;
+    z-index: 98;
+    overflow: hidden;
+}
+
+.sidenav:hover {
+    width: 15em;
+}
+
+.menu {
+    color: gray;
+    font-family: Arial;
+    font-weight: 600;
+    font-size: 16px;
+    padding-left: 16px;
+}
+.active .menu{
+    color: #07bc0c;
+}
+
+
+.sub-menu-text {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-family: Arial;
+    font-weight: 500;
+    height: 35px;
+}
+
+mat-expansion-indicator {
+    color: white;
+}
+
+
+.menu-border {
+    border: 1px solid rgb(222, 236, 222);
+}
+
+hr {
+    border-top: 1px solid black;
+    margin-block-end: -0.5em;
+    margin-block-start: -0.5em;
+}
+
+.sub-menus {
+    height: 46px;
+    width: auto;
+    padding: 12px 0px 0px 20px;
+    cursor: pointer;
+}
+
+.sub-menus:hover {
+    background: linear-gradient(to bottom, #67D7F4 0%, #21B4EB 100%) !important;
+}
+
+.sub-active {
+    background: linear-gradient(to bottom, #67D7F4 0%, #21B4EB 100%) !important;
+    border: 0px !important
+}
+
+.icon-sub-menu-header {
+    height: 25px !important;
+    width: 40px !important;
+}
+.text-sub-menu {
+    color: white;
+    font-family: Arial;
+    font-weight: 600;
+    font-size: 16px;
+    padding-left: 1px;
+}
+mat-icon{
+    color: gray;
+}
+.active mat-icon{
+    color: #07bc0c;
+}

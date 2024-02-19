@@ -1,0 +1,94 @@
+<mat-sidenav-container
+  fullscreen
+  class="sidenav-container"
+  (mouseenter)="increase()"
+  (mouseleave)="decrease()"
+>
+  <mat-sidenav
+    #sidenav
+    class="sidenav"
+    opened="true"
+    [ngStyle]="{ 'margin-top': true ? '56px' : '' }"
+  >
+    <mat-nav-list>
+      <hr style="height: 5px; color: black" />
+      <span>
+        <!-- Menu Items with No Childrens -->
+        <mat-list-item
+          class="menu-border active"
+          (click)="menuClick('dashboard'); menuselected(1)"
+        >
+          <mat-icon mat-list-icon style="margin-top: 10px">dashboard</mat-icon>
+          <span class="menu">Dashboard</span>
+        </mat-list-item>
+        <mat-list-item
+          class="menu-border"
+          (click)="menuClick('dashboard'); menuselected(2)"
+        >
+          <mat-icon mat-list-icon style="margin-top: 10px">analytics</mat-icon>
+          <span class="menu">Monitoring</span>
+        </mat-list-item>
+        <mat-list-item
+          class="menu-border"
+          (click)="menuClick('chats'); menuselected(3)"
+        >
+          <mat-icon mat-list-icon style="margin-top: 10px"
+            >chat_bubble</mat-icon
+          >
+          <span class="menu">Chat Bot</span>
+        </mat-list-item>
+        <mat-list-item
+          class="menu-border"
+          (click)="menuClick('dashboard'); menuselected(4)"
+        >
+          <mat-icon mat-list-icon style="margin-top: 10px"
+            >upload_file</mat-icon
+          >
+          <span class="menu">Bulk Message</span>
+        </mat-list-item>
+        <mat-list-item
+          class="menu-border"
+          (click)="menuClick('dashboard'); menuselected(5)"
+        >
+          <mat-icon mat-list-icon style="margin-top: 10px"
+            >manage_accounts</mat-icon
+          >
+          <span class="menu">Manage</span>
+        </mat-list-item>
+        <mat-list-item
+          class="menu-border"
+          (click)="menuClick('dashboard'); menuselected(6)"
+        >
+          <mat-icon mat-list-icon style="margin-top: 10px">settings</mat-icon>
+          <span class="menu">Settings</span>
+        </mat-list-item>
+        <!-- Menu Items with Childrens -->
+        <!-- <span *ngIf="item.SubMenus && item.SubMenus.length> 0">
+                    <mat-accordion>
+                        <mat-expansion-panel hideToggle={{hideSubmenuIcon}}
+                            #panel (mouseenter)="panel.open()"
+                            (mouseleave)="panel.close()">
+                            <mat-expansion-panel-header class="menu-border
+                                menu">
+                                <mat-panel-title>
+                                    <mat-icon class="icon-sub-menu-header">{{item.MenuIcon}}</mat-icon>
+                                    <span class="text-sub-menu"
+                                        *ngIf="!hideSubmenuIcon">{{item.Menu}}</span>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <span>
+                                <span *ngFor="let children of item.SubMenus">
+                                    <div class="sub-menus menu-border"
+                                        [ngClass]="{'sub-active':activeMenu==children.SubMenu}"
+                                        (click)="menuClick(children);menuselected(children.SubMenu)">
+                                        <span class="sub-menu-text">{{children.SubMenu}}</span>
+                                    </div>
+                                </span>
+                            </span>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </span> -->
+      </span>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
